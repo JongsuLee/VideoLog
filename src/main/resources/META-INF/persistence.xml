@@ -2,7 +2,7 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-    <persistence-unit name="step02">
+    <persistence-unit name="VideoLog">
     	<properties>
     		<!-- property name attribute -->
     		<!--  javax.persistence ~ : JAP 표준 속성 -->
@@ -11,7 +11,7 @@
     		<!-- 필수속성 -->
     		<!-- MySQL 설정 -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa?serverTimezone=UTC"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/VideoLog?serverTimezone=UTC"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="1234"/>
 			
