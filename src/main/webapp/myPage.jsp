@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>YouTube</h1>
-	<jsp:include page="common/top.jsp" flush="true" /><br>
-	<hr>
-	
-	<jsp:include page="common/bottom.jsp" flush="true" />
-
-
+<h1>My Page</h1>
+<a href="main.jsp">home</a>
+<hr>
+<jsp:include page="member/mypage.jsp" flush="true" />
 
 </body>
 </html>
