@@ -32,9 +32,10 @@ public class Video {
 	@Column(name = "DESCRIPTION")
 	private String description;
 
+
+	
 	public Video() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Video(long id, String title, String uploader, int readcnt, int like, int hate, String description) {

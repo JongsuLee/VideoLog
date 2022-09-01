@@ -15,21 +15,14 @@ public class UserVideo {
 	private Long no;
 
 	@Column(name = "USER_ID")
-	private String userId;
+	private int userId;
 	
 	@Column(name = "VIDEO_ID")
-	private String videoId;
+	private int videoId;
 
 	public UserVideo() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public UserVideo(long no, String userId, String videoId) {
-		super();
-		this.no = no;
-		this.userId = userId;
-		this.videoId = videoId;
 	}
 
 	@Override
@@ -37,29 +30,37 @@ public class UserVideo {
 		return "UserVideo [no=" + no + ", userId=" + userId + ", videoId=" + videoId + "]";
 	}
 
-	public long getNo() {
+	public Long getNo() {
 		return no;
 	}
 
-	public void setNo(long no) {
+	public void setNo(Long no) {
 		this.no = no;
 	}
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	public String getVideoId() {
+	public int getVideoId() {
 		return videoId;
 	}
 
-	public void setVideoId(String videoId) {
+	public void setVideoId(int videoId) {
 		this.videoId = videoId;
 	}
+
+	public UserVideo(Long no, int userId, int videoId) {
+		super();
+		this.no = no;
+		this.userId = userId;
+		this.videoId = videoId;
+	}
+
 	
 	
 	

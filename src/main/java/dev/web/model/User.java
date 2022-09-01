@@ -30,7 +30,6 @@ public class User {
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(long id, String userId, String passwd, String userName, String gender, int age) {
