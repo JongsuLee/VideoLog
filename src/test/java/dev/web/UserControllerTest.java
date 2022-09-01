@@ -1,0 +1,105 @@
+package dev.web;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.servlet.http.HttpServlet;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.web.context.annotation.SessionScope;
+
+import dev.web.model.User;
+import dev.web.model.UserVideo;
+import dev.web.model.Video;
+
+
+class UserControllerTest extends HttpServlet {
+
+	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoLog");
+	private final EntityManager em = emf.createEntityManager();
+	private final EntityTransaction tx = em.getTransaction();
+	
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+	
+	public User authorize(String userid, String passwd) {
+		String sql = "select u from User u where userid = :userid and passwd = :passwd";
+		TypedQuery<User> query = em.createQuery(sql, User.class);
+		query.setParameter("userid", userid);
+		query.setParameter("passwd", passwd);
+		
+		return query.getSingleResult(); 
+	}
+	
+	@Test
+	public void logIn() {
+
+		String userid = "ARI";
+		String passwd = "123";
+		try {
+			System.out.println(authorize(userid, passwd));
+			
+		} catch (Exception e) {
+			// 아이디 혹은 비밀번호가 맞지 않은 경우 예외발생
+			System.out.println("아이디와 비밀번호를 확인해주십시오");
+		}
+
+	}
+	
+	@Test
+	public void checkVideos() {
+
+		Scanner scan = new Scanner(System.in);
+		System.out.print("UPLOADER: ");
+		String uploader = scan.next();
+		
+//		TypedQuery<Video> query2 = em.createQuery("select v from Video v where uploader like concat('%', :uploader, '%')", Video.class);
+		TypedQuery<Video> query2 = em.createQuery("select v from Video v where uploader like '%' || :uploader || '%'", Video.class);
+//		TypedQuery<Video> query2 = em.createQuery("select v from Video v where uploader like '%코딩%'", Video.class);
+		System.out.println(uploader);
+		query2.setParameter("uploader", uploader);
+		List<Video> list = query2.getResultList();
+		System.out.println(list.size());
+		
+		for (Video video : list) {
+			System.out.println(video);
+		}
+		
+	}
+	
+	private void relateUserVideo(User user, Video video) {
+		UserVideo userVideo = new UserVideo();
+		userVideo.setUserId(user.getId());
+		userVideo.setVideoId(video.getId());
+		em.persist(userVideo);
+	}
+	
+	@Test
+	public void clickVideo() {
+		
+		User user = em.find(User.class, 1l);
+		Video video = em.find(Video.class, 2l);
+		
+		tx.begin();
+		relateUserVideo(user, video);
+		video.setReadcnt(video.getReadcnt() + 1);
+		em.persist(video);
+		tx.commit();
+		
+		UserVideo check = em.find(UserVideo.class, 1l);
+		System.out.println(check);
+		
+		
+	}
+	
+
+}
