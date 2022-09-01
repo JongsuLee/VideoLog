@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<form name="videoRetrieveForm" method="get" action="cartAdd">
+<form name="videoRetrieveForm" method="get" action="retrieve">
 
 	<input type="hidden" name="title" value="${videoRetrieve.title}">
 	<input type="hidden" name="uploader" value="${videoRetrieve.uploader}">
