@@ -15,20 +15,43 @@ public class UserVideo {
 	private Long no;
 
 	@Column(name = "USER_ID")
-	private String userId;
+	private long userId;
 	
 	@Column(name = "VIDEO_ID")
-	private String videoId;
+	private long videoId;
 
 	public UserVideo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public UserVideo(long no, String userId, String videoId) {
+	public UserVideo(Long no, long userId, long videoId) {
 		super();
 		this.no = no;
 		this.userId = userId;
+		this.videoId = videoId;
+	}
+
+	public Long getNo() {
+		return no;
+	}
+
+	public void setNo(Long no) {
+		this.no = no;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public long getVideoId() {
+		return videoId;
+	}
+
+	public void setVideoId(long videoId) {
 		this.videoId = videoId;
 	}
 
@@ -37,32 +60,5 @@ public class UserVideo {
 		return "UserVideo [no=" + no + ", userId=" + userId + ", videoId=" + videoId + "]";
 	}
 
-	public long getNo() {
-		return no;
-	}
-
-	public void setNo(long no) {
-		this.no = no;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getVideoId() {
-		return videoId;
-	}
-
-	public void setVideoId(String videoId) {
-		this.videoId = videoId;
-	}
 	
-	
-	
-	
-
 }
