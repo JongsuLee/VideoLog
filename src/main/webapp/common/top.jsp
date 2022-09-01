@@ -10,6 +10,6 @@
 
 <c:if test="${! empty login}">
  안녕하세요.${login.userid}님<br>
- <a href="memberForm.jsp">mypage</a>&nbsp;&nbsp;
+ <a href="userForm.jsp">mypage</a>&nbsp;&nbsp;
  <a href="main.jsp">로그아웃</a>&nbsp;&nbsp;
 </c:if>

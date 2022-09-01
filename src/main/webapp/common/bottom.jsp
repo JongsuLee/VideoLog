@@ -7,5 +7,6 @@
 </c:if>
 
 <c:if test="${! empty login}">
-	<h3>Video List</h3>
+	<h2>Video List</h2>
+	<jsp:include page="/video/videoList.jsp" flush="true" />
 </c:if>
